@@ -79,6 +79,9 @@ class Parser:
                 return self.if_statement()
             case "then" | "else":
                 self.advance()
+                if(self.current_token == "if"):
+                    self.advance()
+                    return self.if_statement()
                 return self.assignment()
             # for while statements
             case "while": 
